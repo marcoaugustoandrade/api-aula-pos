@@ -1,15 +1,15 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose'
 
 const pessoaSchema = new mongoose.Schema({
-  nome: { 
+  nome: {
     type: String,
     required: true
   },
-  email: { 
-    type: String 
+  email: {
+    type: String
   }
 })
 
-const Pessoa = mongoose.model("Pessoa", pessoaSchema)
+const Pessoa = mongoose.model('Pessoa', pessoaSchema)
 
 export default Pessoa

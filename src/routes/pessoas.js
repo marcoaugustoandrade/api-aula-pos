@@ -1,7 +1,7 @@
-import { Router } from "express"
-import pessoasController from "../controllers/pessoas.js" 
+import { Router } from 'express'
+import pessoasController from '../controllers/pessoas.js'
 
-const routerPessoas = Router()
+const pessoasRouter = Router()
 
 /**
  * @swagger
@@ -31,10 +31,12 @@ const routerPessoas = Router()
  *            application/json:
  *               example: Not Found
 */
-routerPessoas.get('/pessoas', pessoasController.listar)
-routerPessoas.get('/pessoas/:id', pessoasController.listarPorId)
-routerPessoas.post('/pessoas', pessoasController.inserir)
-routerPessoas.put('/pessoas/:id', pessoasController.alterar)
-routerPessoas.delete('/pessoas/:id', pessoasController.deletar)
 
-export default routerPessoas
+pessoasRouter.get('/api/pessoas', pessoasController.listar)
+pessoasRouter.get('/api/pessoas/pagina/:pagina', pessoasController.listarPaginado)
+pessoasRouter.get('/api/pessoas/:id', pessoasController.listarPorId)
+pessoasRouter.post('api//pessoas', pessoasController.inserir)
+pessoasRouter.put('/api/pessoas/:id', pessoasController.alterar)
+pessoasRouter.delete('/api/pessoas/:id', pessoasController.deletar)
+
+export default pessoasRouter

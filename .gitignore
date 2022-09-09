@@ -1,3 +1,5 @@
 node_modules/
 data_mongodb/
 log/
+.env
+access.log
