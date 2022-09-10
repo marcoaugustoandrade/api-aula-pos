@@ -1,13 +1,13 @@
 import express from 'express'
 // import pessoasRouter from "./routes/pessoas.js"
 import connection from './config/database.js'
-import swaggerUI from 'swagger-ui-express'
-import swaggerJsDoc from 'swagger-jsdoc'
-import swaggerOptions from './config/swagger.js'
+import swaggerUi from 'swagger-ui-express'
+import swaggerFile from './doc/swagger-output.json' assert { type: 'json' }
 import morgan from 'morgan'
 import fs from 'fs'
 import cors from 'cors'
 import routes from './routes/index.js'
+import { type } from 'os'
 
 const app = express()
 app.use(express.json())
@@ -29,9 +29,8 @@ connection
 // app.use('/api', pessoasRouter)
 routes(app)
 
-// Rotas para documentação da API
-const swaggerDocs = swaggerJsDoc(swaggerOptions)
-app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
+// Documentação da API
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // Tratamento da rota não encontrada
 app.use((req, res) => {

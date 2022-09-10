@@ -50,3 +50,9 @@ No `package.json`:
 ```
 
 
+
+
+## Questões
+- Como fazer anotações na rota => Fácil
+- Gerar em tempo de execução
+
